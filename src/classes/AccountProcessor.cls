@@ -6,7 +6,7 @@ public class AccountProcessor {
         for(Account acc : accountList){
             Integer count = 0;
             for(Contact c : contactList){
-                if(c.AccountId == acc.id){
+                if(c.AccountId == acc.Id){
                     count++;
                 }
             }

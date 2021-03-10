@@ -385,7 +385,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Is_Synced__c</fullName>
+        <fullName>IsSynced__c</fullName>
         <defaultValue>true</defaultValue>
         <externalId>false</externalId>
         <label>Is Synced</label>

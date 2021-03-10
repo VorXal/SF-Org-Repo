@@ -3,6 +3,7 @@
     <types>
         <members>AccountProcessor</members>
         <members>AccountProcessorTest</members>
+        <members>AccountTriggerHandler</members>
         <members>RandomTaskAllocator</members>
         <members>TaskCreator</members>
         <members>productTriggerHelper</members>

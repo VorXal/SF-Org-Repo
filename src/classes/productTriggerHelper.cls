@@ -1,4 +1,4 @@
-public class productTriggerHelper {
+public with sharing class productTriggerHelper {
 	private static Boolean flag = true;
     
     public static void changeFlag(){

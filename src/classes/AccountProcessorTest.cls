@@ -30,9 +30,9 @@ private class AccountProcessorTest {
 
         List<Account> results = [SELECT Id, Number_of_Contacts__c
                                    FROM Account
-                                  WHERE Id in :accountIds];
+                                  WHERE Id IN :accountIds];
         for (Account a : results) {
-            System.AssertEquals(5, a.Number_of_Contacts__c);
+            System.assertEquals(5, a.Number_of_Contacts__c);
         }
     }
 }

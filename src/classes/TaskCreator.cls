@@ -1,4 +1,5 @@
 public with sharing class TaskCreator {
+
 	@InvocableMethod
     public static void createNewTask(List<Account> accountList){
         List<Task> tasksList = new List<Task>();
@@ -9,4 +10,5 @@ public with sharing class TaskCreator {
         }
         insert tasksList;
     }
+
 }

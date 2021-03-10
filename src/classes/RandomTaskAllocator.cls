@@ -1,8 +1,8 @@
 public with sharing class RandomTaskAllocator {
 	@InvocableMethod
     public static void allocationTask(List<Id> accountList){
-        List<Task> taskWhatIdList = [select WhatId from Task where WhatId in :accountList];
-        List<User> userList = [select Id from User where isActive = true];
+        List<Task> taskWhatIdList = [SELECT WhatId FROM Task WHERE WhatId IN :accountList];
+        List<User> userList = [SELECT Id FROM User WHERE IsActive = TRUE];
         for(Id accId : accountList){
             Integer i = 0;
             for(Task task: taskWhatIdList){
