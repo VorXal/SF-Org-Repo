@@ -114,6 +114,8 @@ public with sharing class AccountTriggerHandler {
         String jsonNewMap = JSON.serialize(Trigger.newMap);
 
         updateSyncStatusForContacts(accountIds, jsonOldMap, jsonNewMap);
+
+        System.enqueueJob(new UpdateSyncStatus(newAccount));
     }
 
     public void OnBeforeUpdate(List<Account> newAccount, List<Account> oldAccount, Map<Id, Account> newAccountMap, Map<Id, Account> oldAccountMap )
