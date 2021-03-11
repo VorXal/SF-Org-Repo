@@ -2,7 +2,7 @@
  * Created by Aleksei on 11.03.2021.
  */
 
-public class UpdateAccount implements Database.Batchable<sObject>, Database.Stateful {
+public class UpdateAccountByTask implements Database.Batchable<SObject>, Database.Stateful {
 
     public Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator(
