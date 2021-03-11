@@ -104,18 +104,18 @@ public with sharing class AccountTriggerHandler {
 
     public void OnAfterUpdate(List<Account> newAccount, List<Account> oldAccount, Map<Id, Account> newAccountMap, Map<Id, Account> oldAccountMap )
     {
-        List<Id> accountIds = new List<Id>();
-
-        for (Account acc : newAccount){
-            accountIds.add(acc.Id);
-        }
-
-        String jsonOldMap = JSON.serialize(Trigger.oldMap);
-        String jsonNewMap = JSON.serialize(Trigger.newMap);
-
-        updateSyncStatusForContacts(accountIds, jsonOldMap, jsonNewMap);
-
-        System.enqueueJob(new UpdateSyncStatus(newAccount));
+//        List<Id> accountIds = new List<Id>();
+//
+//        for (Account acc : newAccount){
+//            accountIds.add(acc.Id);
+//        }
+//
+//        String jsonOldMap = JSON.serialize(Trigger.oldMap);
+//        String jsonNewMap = JSON.serialize(Trigger.newMap);
+//
+//        updateSyncStatusForContacts(accountIds, jsonOldMap, jsonNewMap);
+//
+//        System.enqueueJob(new UpdateSyncStatus(newAccount));
     }
 
     public void OnBeforeUpdate(List<Account> newAccount, List<Account> oldAccount, Map<Id, Account> newAccountMap, Map<Id, Account> oldAccountMap )
