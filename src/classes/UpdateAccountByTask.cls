@@ -2,15 +2,16 @@
  * Created by Aleksei on 11.03.2021.
  */
 
-public class UpdateAccountByTask implements Database.Batchable<SObject>, Database.Stateful {
+global  class UpdateAccountByTask implements Database.Batchable<SObject>, Database.Stateful {
 
-    public Database.QueryLocator start(Database.BatchableContext bc) {
+    global  Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator(
                 'SELECT Id, Name, Updated_By_Task__c, Owner.Name, '+
                         '(SELECT Id, Account_Owner__c FROM Tasks WHERE IsSynced__c = FALSE) FROM Account'
         );
     }
-    public void execute(Database.BatchableContext bc, List<Account> scope){
+
+    global  void execute(Database.BatchableContext bc, List<Account> scope){
         List<Task> tasksToUpdate = new List<Task>();
         List<Account> accountsToUpdate = new List<Account>();
 
@@ -27,7 +28,8 @@ public class UpdateAccountByTask implements Database.Batchable<SObject>, Databas
         update accountsToUpdate;
         update tasksToUpdate;
     }
-    public void finish(Database.BatchableContext bc){
+
+    global  void finish(Database.BatchableContext bc){
         System.debug('Accounts and tasks were successfully updated!');
     }
 }

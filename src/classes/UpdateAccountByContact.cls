@@ -2,7 +2,7 @@
  * Created by Aleksei on 11.03.2021.
  */
 
-public with sharing class UpdateAccountByContact implements Database.Batchable<Account>, Database.Stateful {
+global class UpdateAccountByContact implements Database.Batchable<Account>, Database.Stateful {
 
     private List<Account> accountList;
 
@@ -10,11 +10,11 @@ public with sharing class UpdateAccountByContact implements Database.Batchable<A
         accountList = accounts;
     }
 
-    public Iterable<Account> start(Database.BatchableContext bc) {
+    global  Iterable<Account> start(Database.BatchableContext bc) {
         return accountList;
     }
 
-    public void execute(Database.BatchableContext bc, List<Account> scope){
+    global  void execute(Database.BatchableContext bc, List<Account> scope){
         List<Contact> contactsToUpdate = new List<Contact>();
         List<Account> accountsToUpdate = new List<Account>();
 
@@ -38,7 +38,8 @@ public with sharing class UpdateAccountByContact implements Database.Batchable<A
         update contactsToUpdate;
         update accountsToUpdate;
     }
-    public void finish(Database.BatchableContext bc){
+
+    global  void finish(Database.BatchableContext bc){
         System.debug('Accounts and contacts were successfully updated!');
     }
 }
