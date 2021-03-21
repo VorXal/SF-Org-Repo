@@ -1,5 +1,5 @@
 public with sharing class productTriggerHelper {
-	private static Boolean flag = true;
+    @TestVisible private static Boolean flag = true;
     
     public static void changeFlag(){
         flag = !flag;
