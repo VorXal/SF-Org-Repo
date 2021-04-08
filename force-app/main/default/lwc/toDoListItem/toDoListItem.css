@@ -1,0 +1,15 @@
+.red, .yellow, .green{
+    border-radius: 10px;
+}
+
+.red{
+    background-color: #ffa45b;
+}
+
+.yellow{
+    background-color: #ffda77;
+}
+
+.green{
+    background-color: #aee6e6;
+}

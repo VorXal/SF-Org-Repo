@@ -1,0 +1,24 @@
+<template>
+    <section class="slds-accordion__section">
+        <div class="slds-accordion__summary">
+            <h2 class="slds-accordion__summary-heading">
+                <button class="slds-button slds-button_reset slds-accordion__summary-action"
+                    aria-controls="referenceId-21" aria-expanded="true" title="Accordion summary"
+                    onclick={showOrHideContent}>
+                    <span class="slds-accordion__summary-content">{todo.Name}</span>
+                </button>
+            </h2>
+        </div>
+        <div class="slds-accordion__content">
+            <lightning-input type="date" name="input1" label="Creation Date" value={todo.Creation_Date__c} disabled>
+            </lightning-input>
+            <lightning-textarea type="text" name="input2" label="Description" value={todo.Description__c} disabled>
+            </lightning-textarea>
+            <lightning-input name="input3" label="Category" value={todo.Category__c} disabled></lightning-input>
+            <lightning-input name="input4" label="Priority" value={todo.Priority__c} disabled></lightning-input>
+            <lightning-input type="checkbox" name="input5" label="Status" value={todo.Status__c} disabled>
+            </lightning-input>
+            <c-controls onedit={handleEdit} ondelete={handleDelete}></c-controls>
+        </div>
+    </section>
+</template>

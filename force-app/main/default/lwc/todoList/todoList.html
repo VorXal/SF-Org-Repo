@@ -1,0 +1,37 @@
+<template>
+    <div class="button-wrapper">
+        <lightning-button variant="brand" label="Create New ToDo" onclick={showCreateModalWindow}
+            class="slds-m-left_x-small"></lightning-button>
+    </div>
+    <template if:true={showCreateModal}>
+        <c-modal-window-create onclose={closeCreateModalWindow}>
+        </c-modal-window-create>
+    </template>
+    <template if:true={showEditModal}>
+        <c-modal-window-edit record-id={recordId} onclose={closeEditModalWindow}>
+        </c-modal-window-edit>
+    </template>
+    <template if:true={todos}>
+        <lightning-input type="search" onchange={handleSearchTermChange} variant="label-hidden"
+            class="slds-var-m-bottom_small" label="Search" placeholder="Search for ToDos" value={searchTerm}>
+        </lightning-input>
+        <div class="slds-card" title="Your ToDo\'s">
+            <ul class="slds-accordion">
+                <template for:each={todos.data} for:item="todo">
+                    <li key={todo.Id} class="slds-accordion__list-item">
+                        <c-to-do-list-item todo={todo} ondelete={reload} onedit={editRecord}>
+                        </c-to-do-list-item>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </template>
+    <template if:false={todos}>
+        <div class="slds-card">
+            You haven't ToDos
+        </div>
+    </template>
+    <template if:true={error}>
+        ALARM!!!
+    </template>
+</template>
